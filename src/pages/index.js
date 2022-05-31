@@ -1,6 +1,6 @@
 export { default as Calendar } from './Calendar';
 export { default as ColorPicker } from './ColorPicker';
-export { default as Customer } from './Customer';
+export { default as Customers } from './Customer';
 export { default as Ecommerce } from './Ecommerce';
 export { default as Editor } from './Editor';
 export { default as Employees } from './Employees';
