@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import { useStateContext } from './context/ContextProvider';
 
 import './App.css';
 import {
@@ -41,7 +42,7 @@ import {
 } from './components/index';
 
 const App = () => {
-  const activeMenue = false;
+  const {activeMenue}= useStateContext()
 
   return (
     <div>
@@ -68,14 +69,18 @@ const App = () => {
             </div>
           )}
           <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
+            /* className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
               activeMenue ? `md:ml-72 ` : `flex-2`
-            }`}
+            }`} */
+            className={
+              activeMenue
+                ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  '
+                : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
+            }
           >
-            <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
               <Navbar />
             </div>
-          </div>
           <div>
             <Routes>
               {/*Dashboard */}
@@ -102,7 +107,10 @@ const App = () => {
               <Route path='/stacked' element={<Stacked />} />
             </Routes>
           </div>
+          <Footer/>
         </div>
+        </div>
+
       </BrowserRouter>
     </div>
   );
