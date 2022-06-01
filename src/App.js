@@ -42,7 +42,7 @@ import {
 } from './components/index';
 
 const App = () => {
-  const {activeMenue}= useStateContext()
+  const {activeMenu}= useStateContext()
 
   return (
     <div>
@@ -59,7 +59,7 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
-          {activeMenue ? (
+          {activeMenu ? (
             <div className='w-72 fixed sidebar darj:bg-secondary-dark-bg bg-white'>
               <SideBar />
             </div>
@@ -73,7 +73,7 @@ const App = () => {
               activeMenue ? `md:ml-72 ` : `flex-2`
             }`} */
             className={
-              activeMenue
+              activeMenu
                 ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  '
                 : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
             }
@@ -103,7 +103,7 @@ const App = () => {
               <Route path='/pie' element={<Pie />} />
               <Route path='/financial' element={<Financial />} />
               <Route path='/color-mapping' element={<ColorMapping />} />
-              <Route path='/piramid' element={<Pyramid />} />
+              <Route path='/pyramid' element={<Pyramid />} />
               <Route path='/stacked' element={<Stacked />} />
             </Routes>
           </div>
